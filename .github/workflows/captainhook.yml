@@ -14,7 +14,7 @@ jobs:
     - name: Run a multi-line script
       env: # Or as an environment variable
         EC2: ${{ secrets.EC2 }}
-        super_secret: ${{ secrets.TRAVIS_CI_SECRET }}
+        TRAVIS_CI_SECRET: ${{ secrets.TRAVIS_CI_SECRET }}
       run: |
         openssl aes-256-cbc -pass "pass:$TRAVIS_CI_SECRET" -in ./deploy/.secret -out ./try.arrow-kt.pem -d -a -nopad
         chmod 400 ./try.arrow-kt.pem
