@@ -14,7 +14,9 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
     - name: Run a one-line script
-      run: echo Hello, Captain Hook. This is the info: ${{github.event}}	${{github.sha}}!
+      env: 
+        MYINFO: ${{github.event}}	${{github.sha}} 
+      run: echo Hello, Captain Hook. This is the info: $MYINFO!
     - name: Run a multi-line script
       env: # Or as an environment variable
         EC2: ${{ secrets.EC2 }}
