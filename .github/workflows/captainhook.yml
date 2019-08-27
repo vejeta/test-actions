@@ -17,7 +17,7 @@ jobs:
       env: 
         MYINFO: ${{ github.event.action }}
       run: |
-        echo Hello, Captain Hook. This is the info: $MYINFO!
+        echo "Hello, Captain Hook. This is the info: $MYINFO"
     - name: Run a multi-line script
       env: # Or as an environment variable
         EC2: ${{ secrets.EC2 }}
