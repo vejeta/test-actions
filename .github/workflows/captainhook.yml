@@ -15,7 +15,7 @@ jobs:
       run: echo "$GITHUB_CONTEXT"
     - name: Run a one-line script
       env: 
-        MYINFO: ${{ github.event }}	${{ github.sha }} 
+        MYINFO: ${{ github.event }}
       run: echo Hello, Captain Hook. This is the info: $MYINFO!
     - name: Run a multi-line script
       env: # Or as an environment variable
