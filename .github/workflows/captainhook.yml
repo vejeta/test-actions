@@ -15,9 +15,10 @@ jobs:
       run: echo "$GITHUB_CONTEXT"
     - name: Run a one-line script
       env: 
+        WORKFLOW: ${{ github.workflow }}
         MYINFO: ${{ github.event.action }}
       run: |
-        echo "Hello, Captain Hook. This is the info: $MYINFO"
+        echo "Hello, Captain Hook. This is the info: $MYINFO workflow: $WORKFLOW"
     - name: Run a multi-line script
       env: # Or as an environment variable
         EC2: ${{ secrets.EC2 }}
