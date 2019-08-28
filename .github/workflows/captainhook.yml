@@ -22,10 +22,9 @@ jobs:
       env: # Or as an environment variable
         EC2: ${{ secrets.EC2 }}
         TRAVIS_CI_SECRET: ${{ secrets.TRAVIS_CI_SECRET }}
-        BRANCH_COMMIT: ${{ github.event.action }}
       run: |
-        export BRANCH=$(echo $BRANCH_COMMIT" | cut -f1 -d':')
-        export COMMIT=$(echo $BRANCH_COMMIT" | cut -f2 -d':')
+        export BRANCH=$(echo ${{ github.event.action }} | cut -f1 -d':')
+        export COMMIT=$(echo ${{ github.event.action }} | cut -f2 -d':')
         echo $BRANCH $COMMIT
         openssl aes-256-cbc -pass "pass:$TRAVIS_CI_SECRET" -in ./deploy/.secret -out ./try.arrow-kt.pem -d -a -nopad
         chmod 400 ./try.arrow-kt.pem
